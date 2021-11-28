@@ -127,13 +127,13 @@ def train_net(dataloader, model, loss_fn, optimizer):
 
 if __name__ == "__main__":
     # Load data
-    local_views = np.load('NpyData/local_view.npy')
-    global_views = np.load('NpyData/global_view.npy')
+    local_views = np.load('NpyData/TrainData/local_view.npy')
+    global_views = np.load('NpyData/TrainData/global_view.npy')
 
-    impact = np.load('NpyData/tce_impact.npy')
-    depth = np.load('NpyData/tce_depth.npy')
+    impact = np.load('NpyData/TrainData/tce_impact.npy')
+    depth = np.load('NpyData/TrainData/tce_depth.npy')
 
-    labels = np.load('NpyData/av_training_set.npy')[:,1] # 67 = "Planet Candidate", 69 = "Eclipsing Binary", 74 = "Junk" # TODO: Figure out what 'R' and 'U' are
+    labels = np.load('NpyData/TrainData/av_training_set.npy')[:, 1] # 67 = "Planet Candidate", 69 = "Eclipsing Binary", 74 = "Junk" # TODO: Figure out what 'R' and 'U' are
     labels = (labels == 67)
     labels = labels.reshape(labels.shape[0],1)
 
