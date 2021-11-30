@@ -102,27 +102,32 @@ class FullyConnectedNetwork(nn.Module):
 
 
 
-def train_net(dataloader, model, loss_fn, optimizer):
+def train_net(dataloader, model, loss_fn, optimizer, num_iters):
     size = len(dataloader.dataset)
     loss_lst = []
-    for batch, (X_local, X_global, impact, rad_rat, y_vals) in enumerate(dataloader):
-        # Compute prediction and loss
-        pred = model(X_local, X_global, impact, rad_rat)
-        loss = loss_fn(pred.double(), y_vals.double())
-        loss_lst.append(loss.item())
-        # Backpropagation
-        optimizer.zero_grad() # zero the gradients
-        loss.backward() # backpass
-        optimizer.step() # step
+    n = 0
 
-        if batch % 20 == 0:
-            print("")
-            unique, counts = np.unique(y_vals,return_counts = True)
-            d = dict(zip(unique,counts))
-            print("Unique Counts Dict:", d)
-            # loss_avg = np.average(loss_lst[-100:])
-            loss, current = loss.item(), batch * X_local.shape[0]
-            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+    while n < num_iters:
+        for batch, (X_local, X_global, impact, rad_rat, y_vals) in enumerate(dataloader):
+            # Compute prediction and loss
+            pred = model(X_local, X_global, impact, rad_rat)
+            loss = loss_fn(pred.double(), y_vals.double())
+            loss_lst.append(loss.item())
+            # Backpropagation
+            optimizer.zero_grad() # zero the gradients
+            loss.backward() # backpass
+            optimizer.step() # step
+            n+=1
+            if n > num_iters:
+                break
+            if batch % 100 == 0:
+                print("")
+                unique, counts = np.unique(y_vals,return_counts = True)
+                d = dict(zip(unique,counts))
+                print("Unique Counts Dict:", d)
+                loss_avg = np.average(loss_lst[-100:])
+                loss, current = loss.item(), batch * X_local.shape[0]
+                print(f"loss: {loss_avg:>7f}  [{current:>5d}/{size:>5d}]")
     return loss_lst
 
 if __name__ == "__main__":
@@ -169,8 +174,8 @@ if __name__ == "__main__":
 
     y = torch.FloatTensor(labels)
 
-    batch_size = 64
-    lr = 0.0001
+    batch_size = [16, 32, 64, 128, 256]
+    lr = [1e-3, 1e-4, 1e-5]
 
     class Data(Dataset):
         def __init__(self, X_local, X_global, impact, depth, y_vals):
