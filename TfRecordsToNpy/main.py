@@ -30,8 +30,11 @@ def MakeDataSet(Path, NumFiles):
 
             FullData = numpy.concatenate((FullData, ThisData))
         print("Done building " + Feature + " with a shape of: " + str(FullData.shape))
-
-        numpy.save("NpyData/" + Feature, FullData)
+        
+        Name = Feature
+        if Path != "train":
+            Name = Path[0].capitalize() + Path[1:] + "-" +  Name
+        numpy.save("NpyData/" + Name, FullData)
 
 MakeDataSet("val", 1)
 MakeDataSet("train", 8)
