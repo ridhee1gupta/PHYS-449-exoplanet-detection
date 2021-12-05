@@ -4,6 +4,7 @@ import gc
 from torch.utils.data import DataLoader, Dataset
 import torch
 from create_datasets import dataset_maker
+import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support
 

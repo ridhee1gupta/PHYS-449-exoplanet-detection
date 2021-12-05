@@ -7,8 +7,6 @@ import numpy as np
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import torch
-from torchsampler import ImbalancedDatasetSampler
-import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
 
 #################################################### Code ####################################################
