@@ -30,8 +30,6 @@ python predictions_maker.py
 
 ## File Structure
 
-project
-
     |-- README.md
     |-- Histogram.py
     |-- auc_curve.py
