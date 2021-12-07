@@ -13,10 +13,7 @@ from create_datasets import dataset_maker
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support, classification_report
 
-"""
-Using the results of the gridsearch this script will use those parameters and create .npy files of the testing and training dataset
-"""
-
+#################################################### Code ####################################################
 # Optimal Grid Search Parameters
 lr = 0.001
 batch_size = 256
