@@ -1,21 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-import seaborn as sb
 
 predictions = np.load('predictions.npy')
 print(predictions)
-#print(predictions[0][0])
 pred = predictions[:,0]
 labels = predictions[:,1]
 
-
-"""
-hist, bin_edges = np.histogram(predictions[:,0])
-print(hist)
-print(bin_edges)
-print(hist.size, bin_edges.size)
-"""
 fig = plt.figure(figsize = (25.6,14.4))
 gs = gridspec.GridSpec(2,3, height_ratios = [2, 1], width_ratios = [1,1,0.2])
 

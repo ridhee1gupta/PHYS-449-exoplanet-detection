@@ -71,4 +71,3 @@ for batch, (test_X_local, test_X_global, test_impact, test_depth, testy) in enum
 output_arr = np.c_[pred_arr,testy_npy]
 
 np.save("predictions.npy", output_arr)
-x = 1
