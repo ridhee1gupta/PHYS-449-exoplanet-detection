@@ -1,4 +1,4 @@
-"""Load tfrecord files into torch datasets."""
+# Retrieved from  https://github.com/aedattilo/models_K2
 
 import typing
 import numpy as np

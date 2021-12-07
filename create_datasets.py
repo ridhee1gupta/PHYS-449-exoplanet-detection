@@ -1,18 +1,13 @@
+#################################################### Purpose ####################################################
+"""
+This script is used to create the datasets that will be used to sort data and input batches into the model
+"""
+#################################################### Imports ####################################################
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-
-
-# Load data
-test_local_views = np.load('NpyData/TrainData/local_view.npy')
-test_global_views = np.load('NpyData/TrainData/global_view.npy')
-
-test_impact = np.load('NpyData/TrainData/tce_impact.npy')
-test_depth = np.load('NpyData/TrainData/tce_depth.npy')
-
-test_labels = np.load('NpyData/TrainData/av_training_set.npy')[:,
-         1]  # 67 = "Planet Candidate", 69 = "Eclipsing Binary", 74 = "Junk"
+#################################################### Code ####################################################
 def dataset_maker(local_path,global_path,impact_path,depth_path, labels_path, batch_size, n_oversample):
     # Load data
     test_local_views = np.load(local_path)

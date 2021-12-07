@@ -1,3 +1,8 @@
+#################################################### Purpose ####################################################
+"""
+This script runs a grid search to find optimal hyperparameters
+"""
+#################################################### Imports ####################################################
 from networks import *
 import numpy as np
 import gc
@@ -7,6 +12,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support
 
+#################################################### Code ####################################################
 # Load Validation Data
 val_local = 'NpyData/ValData/Val-local_view.npy'
 val_global = 'NpyData/ValData/Val-global_view.npy'

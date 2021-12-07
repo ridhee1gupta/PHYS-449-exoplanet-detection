@@ -1,7 +1,14 @@
+#################################################### Purpose ####################################################
+"""
+This code was made to create and save a histogram binned in 3 seperate ways, logarithmic for the height, logarithmic for
+the predictions and then a zoomed in version for the high values of the logarithmic x-axis
+"""
+#################################################### Imports ####################################################
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
+#################################################### Code ####################################################
 predictions = np.load('predictions.npy')
 print(predictions)
 pred = predictions[:,0]

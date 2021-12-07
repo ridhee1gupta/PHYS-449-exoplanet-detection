@@ -1,6 +1,13 @@
+#################################################### Purpose ####################################################
+"""
+This is used to create the Precision vs Recall Curve as well as the ROCAUC Curves from the predictions.npy data
+"""
+#################################################### Imports ####################################################
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import RocCurveDisplay, PrecisionRecallDisplay
+
+############### CODE ###############
 
 pred_arr = np.load('predictions.npy')[:,0]
 testy_npy = np.load('predictions.npy')[:,1]

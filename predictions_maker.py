@@ -1,3 +1,9 @@
+#################################################### Purpose ####################################################
+"""
+This uses our neural network as well as our optimal grid search parameters and creates prediction values for the test
+set
+"""
+#################################################### Imports ####################################################
 from networks import FullyConnectedNetwork, train_net
 import numpy as np
 import torch.nn as nn

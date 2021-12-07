@@ -1,13 +1,12 @@
-#################################################### Nov 11, 2021 ####################################################
+#################################################### Purpose ####################################################
 """
 Local Global and Combined Neural Network Architecture
 """
 #################################################### Imports ####################################################
 import numpy as np
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset
 import torch
-from sklearn.metrics import classification_report
+
 
 #################################################### Code ####################################################
 
