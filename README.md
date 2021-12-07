@@ -10,7 +10,7 @@ The original paper can be read [here](https://iopscience.iop.org/article/10.3847
 
 You can read our proposal presentation [here](https://docs.google.com/presentation/d/1n5lgZY7tB3W2rpewDq_Xp8KH4aIqzklKJyh-J823Fi0/edit#slide=id.p) and our final presentation [here](https://docs.google.com/presentation/d/1uz8E7PzEQqWeeWo50dh50Ruv3hA1q_9qeIvpgF7o_Ac/edit#slide=id.g1066c7fd5ca_17_0). 
 
-![a](assets/NNDiagramUpdated.png)
+![a](https://github.com/ridhee1gupta/PHYS-449-exoplanet-detection/blob/master/Assets/NNDiagramUpdated.png)
 
 The goal of this project was to perform a binary classification of Threshold Crossing Events (TCEs) on data from the K2 dataset.
 We recreated the network architecture and tested it on the publicly available dataset from the original paper. 
@@ -29,8 +29,6 @@ python predictions_maker.py
 
 
 ## File Structure
-
-project
 
     |-- README.md
     |-- Histogram.py
